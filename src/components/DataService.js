@@ -4,7 +4,7 @@ export default {
     fetch("http://localhost:59146/api/Contact/Get", {
       method: "Get"
     })
-      .then(res => res.json)
+      .then(res => res.json())
       .then(data => {
         console.log(data);
         callback(data);

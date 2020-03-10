@@ -13,20 +13,38 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-      <Slide v-bind:comp="{ name: 'Iron Man', id: 234 }" />
-      <Slide v-bind:comp="{ name: 'Thor', id: 879 }" />
+      <Slide
+        v-for="contact in contacts"
+        v-bind:key="contact.FullName"
+        v-bind:comp="{ name: contact.FullName, id: 234 }"
+      />
     </b-carousel>
   </div>
 </template>
 
 <script>
 import Slide from "../components/Slide";
+import DataService from "../components/DataService";
+
 export default {
   data() {
-    return {};
+    return {
+      contacts: [{ FullName: "Empty" }]
+    };
   },
   components: {
     Slide
+  },
+  created() {
+    this.getContacts();
+  },
+  methods: {
+    getContacts() {
+      DataService.getContacts(this.setContacts);
+    },
+    setContacts(data) {
+      this.contacts = data;
+    }
   }
 };
 </script>

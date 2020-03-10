@@ -4,7 +4,7 @@
     <button v-on:click="getContacts()" value="go">lets go</button>
 
     <div v-for="contact in contacts" :key="contact">
-      {{ contact }}
+      {{ contact.FullName }}
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ import DataService from "@/components/DataService";
 export default {
   data() {
     return {
-      contacts: ["not set", "wer"]
+      contacts: [{ FullName: "not set" }]
     };
   },
   name: "Home",
