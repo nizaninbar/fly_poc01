@@ -2,7 +2,7 @@
   <div>
     <b-carousel-slide img-blank>
       <h1>{{ comp.name }}</h1>
-      <span>id:</span><span>{{ comp.id }}</span>
+      <span>Email:</span><span>{{ comp.email }}</span>
     </b-carousel-slide>
   </div>
 </template>

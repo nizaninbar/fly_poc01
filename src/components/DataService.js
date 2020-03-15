@@ -11,7 +11,63 @@ export default {
       })
       .catch(e => {
         console.log("error " + e);
-        callback(["a", "b"]);
+        var d = [
+          {
+            FullName: "ניניו אל",
+            EMailAddress1: "customer@contoso.com"
+          },
+          {
+            FullName: "מוטי ארואסטי",
+            EMailAddress1: "admin@contoso.com"
+          },
+          {
+            FullName: "שלמה ניצן",
+            EMailAddress1: "vincent@adatum.com"
+          },
+          {
+            FullName: "סטיב אוסטין",
+            EMailAddress1: "Adrian@adventure-works.com"
+          },
+          {
+            FullName: "פטר זאב",
+            EMailAddress1: "Cathan@alpineskihouse.com"
+          },
+          {
+            FullName: "נחש צפע",
+            EMailAddress1: "brian@blueyonderairlines.com"
+          },
+          {
+            FullName: "Walter Harp",
+            EMailAddress1: "walter@cpandl.com"
+          },
+          {
+            FullName: "Cat Francis",
+            EMailAddress1: "Cat@cohowinery.com"
+          },
+          {
+            FullName: "Forrest Chand",
+            EMailAddress1: "Forrest@consolidatedmessenger.com"
+          },
+          {
+            FullName: "Eva Corets",
+            EMailAddress1: "evacorets@fabrikam.com"
+          },
+          {
+            FullName: "Gabriele Cannata",
+            EMailAddress1: "gabriele@fourthcoffee.com"
+          },
+          {
+            FullName: "George Sullivan",
+            EMailAddress1: "george@graphicdesigninstitute.com"
+          },
+          {
+            FullName: "Tamer Salah",
+            EMailAddress1: "TSalah@humongousinsurance.com"
+          }
+        ];
+        //callback(d);
+        console.log(d);
+        callback([]);
       });
   }
 };

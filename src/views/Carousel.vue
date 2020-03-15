@@ -1,5 +1,13 @@
 <template>
   <div>
+    <div>
+      <input
+        type="text"
+        placeholder="סנן"
+        v-model="filterText"
+        v-on:keyup="filterContacts"
+      />
+    </div>
     <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -8,15 +16,15 @@
       indicators
       background="#ababab"
       img-width="1000"
-      img-height="350"
+      img-height="100"
       style="text-shadow: 1px 1px 2px #333;"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
       <Slide
-        v-for="contact in contacts"
+        v-for="contact in displayContacts"
         v-bind:key="contact.FullName"
-        v-bind:comp="{ name: contact.FullName, id: 234 }"
+        v-bind:comp="{ name: contact.FullName, email: contact.EMailAddress1 }"
       />
     </b-carousel>
   </div>
@@ -29,7 +37,9 @@ import DataService from "../components/DataService";
 export default {
   data() {
     return {
-      contacts: [{ FullName: "Empty" }]
+      contacts: [{ FullName: "Empty", EMailAddress1: "" }],
+      displayContacts: [],
+      filterText: ""
     };
   },
   components: {
@@ -44,6 +54,12 @@ export default {
     },
     setContacts(data) {
       this.contacts = data;
+      this.displayContacts = this.contacts;
+    },
+    filterContacts() {
+      this.displayContacts = this.contacts.filter(
+        item => item.FullName.indexOf(this.filterText) > -1
+      );
     }
   }
 };
